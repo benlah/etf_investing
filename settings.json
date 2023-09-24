@@ -1,0 +1,18 @@
+{
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnSave": false,
+    "black-formatter.args": ["--line-length", "200"],
+    
+    "flake8.severity": {
+      "E": "Warning",
+      "F": "Warning",
+      "I": "Information",
+      "W": "Warning"
+  },
+    "jupyter.runStartupCommands": ["%load_ext autoreload", "%autoreload 2"],
+    "python.terminal.activateEnvInCurrentTerminal": true
+  }
+  
+}
+

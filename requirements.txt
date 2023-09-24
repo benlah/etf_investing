@@ -1,0 +1,5 @@
+yfinance
+pandas
+pickle
+os
+sys
