@@ -3,3 +3,8 @@ pandas
 pickle
 os
 sys
+openpyxl
+streamlit
+numpy
+watchdog
+plotly

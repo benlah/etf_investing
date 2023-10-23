@@ -1,1 +1,2 @@
-*.pkl filter=lfs diff=lfs merge=lfs -text
+data_storage/data_universe.pkl filter=lfs diff=lfs merge=lfs -text
+data_storage/data_histo_price.pkl filter=lfs diff=lfs merge=lfs -text
