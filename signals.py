@@ -1,5 +1,4 @@
-import pandas as pd
-from data import Data
+import stats
 
 
 class Signals:
@@ -7,6 +6,19 @@ class Signals:
         self.universe = universe
         self.ticker_uiverse = ticker_universe
         self.price = price
+        self.ret = self.get_return_df()
 
-    def ret():
-        pass
+    def get_return_df(self):
+        return (
+            self.price
+            .groupby("Symbol")
+            .pct_change()
+        )
+
+    def get_agg_ret(self, freq):
+        return (
+            self.ret
+            .groupby('Symbol')
+            .resample(freq, level=1)
+            .apply(stats.compound)
+        )

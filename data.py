@@ -39,14 +39,14 @@ class Data:
             .reset_index()
             .rename(columns={"level_1": "Symbol"})
             .sort_values(["Symbol", "Date"])
-            .set_index("Date")
+            .set_index(["Symbol", "Date"])
         )
         return df_price
 
     def update_price(self) -> str:
         if os.path.getsize(data_histo_price) > 0:
             df = self.load_price(updated=False)
-            if df.index.max() == pd.Timestamp.now().date() + pd.offsets.BDay(1) - pd.offsets.BDay(1):
+            if df.index.max() == pd.Timestamp.now().date() - pd.offsets.BDay(1):
                 return print(f'Prices already updated as of {df.index.max().date()}')
             else:
                 df_updated = pd.concat(
@@ -55,6 +55,7 @@ class Data:
                         self.download_price(
                             self.ticker_universe,
                             start=df.index.max() + pd.offsets.Day(1),
+                            end=pd.Timestamp.now().date() - pd.offsets.BDay(1)
                         ),
                     ],
                     axis=1,
