@@ -8,3 +8,5 @@ streamlit
 numpy
 watchdog
 plotly
+scipy
+matplotlib
